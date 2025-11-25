@@ -1,0 +1,365 @@
+# 🚀 React Task Manager Application
+
+A modern, full-featured task management application built with React, featuring task management, user directory, and theme switching capabilities.
+
+## 🌐 Live Demo
+
+**Deployed URL:** [https://your-app-name.vercel.app](https://your-app-name.vercel.app)
+
+> **Note:** Replace the URL above with your actual deployment URL after deploying to Vercel, Netlify, or GitHub Pages.
+
+## 📸 Screenshots
+
+### Light Mode
+![Light Mode Dashboard](./screenshots/light-mode.png)
+*Task Manager in light mode with all tasks view*
+
+### Dark Mode
+![Dark Mode Dashboard](./screenshots/dark-mode.png)
+*Task Manager in dark mode with completed tasks filter*
+
+### Users Directory
+![Users Directory](./screenshots/users-directory.png)
+*Users fetched from JSONPlaceholder API with search functionality*
+
+### Mobile View
+![Mobile Responsive](./screenshots/mobile-view.png)
+*Fully responsive design on mobile devices*
+
+## ✨ Features
+
+### Core Functionality
+- ✅ **Task Management**
+  - Add new tasks
+  - Mark tasks as completed
+  - Delete tasks
+  - Filter tasks (All, Active, Completed)
+  - Persistent storage using localStorage
+
+- 👥 **User Directory**
+  - Fetch users from JSONPlaceholder API
+  - Search users by name or email
+  - Pagination with 6 users per page
+  - Loading and error states
+
+- 🎨 **Theme Switcher**
+  - Light/Dark mode toggle
+  - Persistent theme preference
+  - Smooth theme transitions
+
+### Technical Features
+- **Component Architecture** - Reusable Button, Card, Navbar, and Footer components
+- **State Management** - React hooks (useState, useEffect, useContext)
+- **Custom Hooks** - useLocalStorage for data persistence
+- **API Integration** - RESTful API calls with error handling
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Modern UI/UX** - Smooth animations and hover effects
+
+## 🛠️ Technologies Used
+
+- **React 18** - Frontend framework
+- **Vite** - Build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Modern icon library
+- **JSONPlaceholder API** - Mock REST API for testing
+- **localStorage** - Client-side data persistence
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+- **Node.js** (v18.0.0 or higher)
+- **npm** (v9.0.0 or higher) or **yarn** (v1.22.0 or higher)
+
+Check your versions:
+```bash
+node --version
+npm --version
+```
+
+## 🚀 Installation & Setup
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/react-task-manager.git
+cd react-task-manager
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Start Development Server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will open at `http://localhost:5173`
+
+### 4. Build for Production
+```bash
+npm run build
+# or
+yarn build
+```
+
+### 5. Preview Production Build
+```bash
+npm run preview
+# or
+yarn preview
+```
+
+## 📁 Project Structure
+
+```
+react-task-manager/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── components/
+│   │   ├── Button.jsx
+│   │   ├── Card.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── TaskManager.jsx
+│   │   └── UsersAPI.jsx
+│   ├── context/
+│   │   └── ThemeContext.jsx
+│   ├── hooks/
+│   │   └── useLocalStorage.js
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── screenshots/
+│   ├── light-mode.png
+│   ├── dark-mode.png
+│   ├── users-directory.png
+│   └── mobile-view.png
+├── .gitignore
+├── index.html
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+```
+
+## 🎯 Component Overview
+
+### Reusable Components
+
+#### Button Component
+```jsx
+<Button variant="primary" onClick={handleClick}>
+  Click Me
+</Button>
+```
+**Variants:** `primary`, `secondary`, `danger`
+
+#### Card Component
+```jsx
+<Card title="Card Title">
+  <p>Card content goes here</p>
+</Card>
+```
+
+#### Navbar Component
+- Sticky navigation bar
+- Theme toggle button
+- Responsive menu
+
+#### Footer Component
+- Multi-column layout
+- Quick links
+- Social media links
+
+### Feature Components
+
+#### TaskManager
+- Full CRUD operations for tasks
+- Filter functionality
+- LocalStorage persistence
+
+#### UsersAPI
+- API integration with JSONPlaceholder
+- Search functionality
+- Pagination
+- Loading and error states
+
+## 🎨 Tailwind Configuration
+
+The project uses Tailwind CSS with dark mode support:
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      // Custom configurations
+    },
+  },
+  plugins: [],
+}
+```
+
+## 🔧 Custom Hooks
+
+### useLocalStorage
+Manages state with automatic localStorage synchronization:
+
+```jsx
+const [tasks, setTasks] = useLocalStorage('tasks', []);
+```
+
+### useTheme
+Provides theme context throughout the application:
+
+```jsx
+const { isDark, setIsDark } = useTheme();
+```
+
+## 📡 API Integration
+
+The application integrates with JSONPlaceholder API:
+
+**Endpoint:** `https://jsonplaceholder.typicode.com/users`
+
+**Features:**
+- Automatic error handling
+- Loading states
+- Retry functionality
+- Search and filter
+
+## 🌐 Deployment Instructions
+
+### Deploy to Vercel
+
+1. Install Vercel CLI:
+```bash
+npm install -g vercel
+```
+
+2. Deploy:
+```bash
+vercel
+```
+
+3. Follow the prompts and your app will be live!
+
+### Deploy to Netlify
+
+1. Build the project:
+```bash
+npm run build
+```
+
+2. Install Netlify CLI:
+```bash
+npm install -g netlify-cli
+```
+
+3. Deploy:
+```bash
+netlify deploy --prod --dir=dist
+```
+
+### Deploy to GitHub Pages
+
+1. Install gh-pages:
+```bash
+npm install --save-dev gh-pages
+```
+
+2. Add to package.json:
+```json
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}
+```
+
+3. Update vite.config.js:
+```javascript
+export default {
+  base: '/react-task-manager/'
+}
+```
+
+4. Deploy:
+```bash
+npm run deploy
+```
+
+## 🧪 Testing the Application
+
+### Task Manager Testing
+1. Add a new task by typing in the input field
+2. Click the checkmark to complete a task
+3. Use filter buttons to view All, Active, or Completed tasks
+4. Delete tasks using the trash icon
+5. Refresh the page to verify localStorage persistence
+
+### Users Directory Testing
+1. Verify users load from the API
+2. Use the search bar to filter users
+3. Navigate through pages using pagination
+4. Test error handling by blocking network requests
+
+### Theme Switcher Testing
+1. Click the moon/sun icon in the navbar
+2. Verify all components switch themes
+3. Refresh to ensure theme preference persists
+
+## 📝 Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+
+**Your Name**
+- GitHub: [@Lesliecodes254](https://github.com/Lesliecodes254)
+- Email: kimberlyombima254@gmail.com
+
+## 🙏 Acknowledgments
+
+- [React Documentation](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
+- [Vite](https://vitejs.dev/)
+
+## 📞 Support
+
+If you have any questions or need help, please:
+- Open an issue on GitHub
+- Contact via email
+- Check the documentation
+
+---
+
+**Made with ❤️ using React and Tailwind CSS**
